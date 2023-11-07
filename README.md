@@ -12,7 +12,7 @@
 - team——组员文件，各位组员只能更改自己的文件
   - eg：AiXu——这是AX的代码提交文件
   - eg：DengPen——这是DP的代码提交文件
-  - 。。。。
+- [learn_date](learn_date/README.md)——这是学习资料文件夹
 - 
 #### 仓库使用说明
 
@@ -23,7 +23,7 @@
    1. eg：
 5. 开发前先看看别人提交的内容，以及commit——提交消息
 
-#### git教程——常用命令
+#### git教程——[常用命令](learn_date%2FGit%2FGit%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB.md)
 
 1.  Git安装后-指定名称和邮箱
 ```shell
