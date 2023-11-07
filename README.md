@@ -5,11 +5,11 @@
 
 #### 文件架构
 文件架构说明
-- src——项目源代码
+- [src](src/README.md)——项目源代码
   - 每日任务，练习会发布在这里，小组成员可以这获取，但是不能修改里面的文件
-- log——日志文件
+- [log](log/README.md)——日志文件
   - 会存放一些每周总结的文件内容
-- team——组员文件，各位组员只能更改自己的文件
+- [team](team/README.md)——组员文件，各位组员只能更改自己的文件
   - eg：AiXu——这是AX的代码提交文件
   - eg：DengPen——这是DP的代码提交文件
 - [learn_date](learn_date/README.md)——这是学习资料文件夹
@@ -23,7 +23,7 @@
    1. eg：
 5. 开发前先看看别人提交的内容，以及commit——提交消息
 
-#### git教程——[常用命令](learn_date%2FGit%2FGit%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB.md)
+#### git教程——[常用命令](learn_date/Git/Git%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB.md)
 
 1.  Git安装后-指定名称和邮箱
 ```shell
