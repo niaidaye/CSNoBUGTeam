@@ -17,7 +17,7 @@ public class BClient {
     public static void main(String[] args) {
         try {
             // 创建 Socket 对象，指定服务器的 IP 和端口号
-            Socket socket = new Socket("服务器IP", 8888);
+            Socket socket = new Socket("127.0.0.1", 8888);
 
             // 获取输出流，用于向服务器发送数据
             OutputStream outputStream = socket.getOutputStream();
