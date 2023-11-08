@@ -5,9 +5,9 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * @description:
- * @author: AX
- * @date: 2023/11/6 17:38
+ *
+ * @author aixu
+ * @since 2023/11/6 17:38
  **/
 
 public class NetworkUtils {
