@@ -1,4 +1,4 @@
-package homework;
+package homework.day2;
 
 /**
  * @Projectname: Day2homework
