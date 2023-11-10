@@ -29,8 +29,10 @@ public class HasCircle {// 用于存放，遍历中，节点值
         boolean bool = hasCircle(a);
         System.out.println(bool);
     }
+
     /**
      * 判断链表是否有环
+     *
      * @param head : 头结点
      * @return : 是否有环
      */
@@ -44,7 +46,6 @@ public class HasCircle {// 用于存放，遍历中，节点值
                 flag = false;
                 break;
             }
-
         }
 
         return flag;
