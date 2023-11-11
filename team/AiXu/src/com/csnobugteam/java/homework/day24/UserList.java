@@ -45,6 +45,23 @@ public class UserList {
         return newUsers;
     }
 
+    // 老师的方法
+    public List<User> removeDuplicateUserKeepOnlyOne() {
+        // 通过迭代器，进行，重复判断，
+        Iterator<User> iterator = testUserList.iterator();
+        while (iterator.hasNext()) {
+            // 通过迭代器来，存储下个元素
+            User next = iterator.next();
+            // 查重，如果存在，重复元素，那么向前查找，和向后查找，的元素下标，将会不一样
+            if (testUserList.indexOf(next) != testUserList.lastIndexOf(next)) {
+                // 调用迭代器里的删除元素
+                iterator.remove();
+            }
+        }
+        return testUserList;
+    }
+
+
     /**
      * 将List中的元素与传过来的元素进行对比，判断是否有重复
      * @param user 进行对比的user

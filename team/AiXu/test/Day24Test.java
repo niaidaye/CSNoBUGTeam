@@ -22,7 +22,7 @@ public class Day24Test {
         List<User> oldUsers = userList.testUserList;
         System.out.println("oldUsers: "+oldUsers.size());
         // 进行去重后的数据
-        List<User> newUser = userList.removeDuplicateUserKeepOnlyOne(oldUsers);
+        List<User> newUser = userList.removeDuplicateUserKeepOnlyOne();
         System.out.println("newUser: "+ newUser.size());
     }
 }
