@@ -1,12 +1,13 @@
-package _02leetcode.num21;
+package _02leetcode.day01.num21;
 
 /**
  * Descripsion:
  *
  * @Author dengp
- * @create 2023/11/11 17:43
+ * @create 2023/11/9 22:09
  * @Version 1.0
  */
+
 public class ListNode {
     int val;
     ListNode next;

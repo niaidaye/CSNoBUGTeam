@@ -1,4 +1,4 @@
-package _02leetcode.num23;
+package _02leetcode.day01.num23;
 
 import java.util.PriorityQueue;
 

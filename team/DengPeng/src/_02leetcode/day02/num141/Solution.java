@@ -1,4 +1,4 @@
-package _02leetcode.num141;
+package _02leetcode.day02.num141;
 
 /**
  * Descripsion:

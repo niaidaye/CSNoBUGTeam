@@ -1,4 +1,4 @@
-package _02leetcode.num27;
+package _02leetcode.day04.num27;
 
 
 /*

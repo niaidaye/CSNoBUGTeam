@@ -1,4 +1,4 @@
-package _02leetcode.num142;
+package _02leetcode.day04.num142;
 
 class ListNode {
     int val;
