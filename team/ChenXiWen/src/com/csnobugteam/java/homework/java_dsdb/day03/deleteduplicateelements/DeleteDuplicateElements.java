@@ -2,10 +2,7 @@ package com.csnobugteam.java.homework.java_dsdb.day03.deleteduplicateelements;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * 如果List中存储了多个User对象, 去除重复元素(多个重复元素仅保留一个)(假设使用Collection和List的api)
@@ -16,6 +13,8 @@ public class DeleteDuplicateElements {
 
     @Test
     public void deleteDuplicate() {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
         List<User> list = new ArrayList<User>();
         list.add(new User("zs", 18));
         list.add(new User("ls", 19));

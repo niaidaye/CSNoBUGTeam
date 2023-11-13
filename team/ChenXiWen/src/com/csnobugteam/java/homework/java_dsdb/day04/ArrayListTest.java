@@ -9,6 +9,8 @@ import java.util.*;
  */
 public class ArrayListTest {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
         List<String> list = new ArrayList<>();
         list.add("zs");
         list.add("ls");
