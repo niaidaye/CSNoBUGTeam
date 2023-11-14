@@ -56,7 +56,7 @@ public class StudentListManagement {
     /**
      * 显示当前的学生名单
      */
-    public void DisplaysCurrentStudentList() {
+    public void displaysCurrentStudentList() {
         strudentList.forEach(System.out::println);
     }
 
@@ -83,7 +83,7 @@ public class StudentListManagement {
 
         // 显示学生名单
         System.out.println("当前学生名单：");
-        studentListManagement.DisplaysCurrentStudentList();
+        studentListManagement.displaysCurrentStudentList();
 
         // 删除学生
         System.out.println("请输入要删除的学生姓名：");
@@ -97,6 +97,6 @@ public class StudentListManagement {
 
         // 再次显示学生名单
         System.out.println("更新后的学生名单：");
-        studentListManagement.DisplaysCurrentStudentList();
+        studentListManagement.displaysCurrentStudentList();
     }
 }

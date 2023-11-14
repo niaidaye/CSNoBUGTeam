@@ -2,7 +2,6 @@ package com.csnobugteam.java.homework.day26;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * 给定一个字符串数组 words 和一个字符串 chars.
@@ -18,35 +17,39 @@ public class Test02 {
     public int findGoodStringNums(String[] words, String chars) {
         int res = 0;
 
-        Map<Character, Integer> goodStrMap = new HashMap<>();
-        // 先把，chars存入map
-        char[] charArray = chars.toCharArray();
-        for (char c : charArray) {
-            goodStrMap.put(c, 0);
-        }
-        boolean flag = true;
-        for (String word : words) {
-            char[] wordCharArray = word.toCharArray();
-            for (char c : wordCharArray) {
-                if (goodStrMap.getOrDefault(c,-1) == -1){
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag) {
-                for (char c : wordCharArray) {
-                    int count = goodStrMap.get(c);
-                    goodStrMap.put(c, ++count);
-                }
-            }
-            flag = true;
-        }
+        // 创建字符计数的Map
+        Map<Character, Integer> goodStrMap = createMap(chars);
 
-        Set<Map.Entry<Character, Integer>> entries = goodStrMap.entrySet();
-        for (Map.Entry<Character, Integer> entry : entries) {
-            res += entry.getValue();
+        for (String word : words) {
+            // 创建当前单词的字符计数的Map
+            Map<Character, Integer> wordMap = createMap(word);
+
+            // 判断当前单词是否为"好"的字符串
+            if (judgeGoodStr(goodStrMap, wordMap)) {
+                res += word.length();
+            }
         }
 
         return res;
+    }
+
+    private Map<Character, Integer> createMap(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        return map;
+    }
+
+    private boolean judgeGoodStr(Map<Character, Integer> chars, Map<Character, Integer> judgeMap) {
+        // 检查是否存在字符数量不足的情况
+        for (Map.Entry<Character, Integer> entry : judgeMap.entrySet()) {
+            char c = entry.getKey();
+            int count = entry.getValue();
+            if (!chars.containsKey(c) || chars.get(c) < count) {
+                return false;
+            }
+        }
+        return true;
     }
 }

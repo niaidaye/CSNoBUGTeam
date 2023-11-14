@@ -13,31 +13,31 @@ import java.util.Set;
  * @since 2023/11/14
  */
 public class Test01 {
-    public String findAddedLetter(String s, String t) {
-        StringBuilder res = new StringBuilder();
+    public char findAddedLetter(String s, String t) {
+        char res = 0;
         // 创建一个Map
-        Map<String, Integer> letterMap = new HashMap<>();
+        Map<Character, Integer> letterMap = new HashMap<>();
         // 遍历S字符串
         char[] charArrayS = s.toCharArray();
         for (char charS : charArrayS) {
-            int count = letterMap.getOrDefault(String.valueOf(charS), 0);
-            letterMap.put(String.valueOf(charS), ++count);
+            int count = letterMap.getOrDefault(charS, 0);
+            letterMap.put(charS, ++count);
         }
 
         // 遍历t字符串
         char[] charArrayT = t.toCharArray();
         for (char charT : charArrayT) {
-            int count = letterMap.getOrDefault(String.valueOf(charT), 0);
-            letterMap.put(String.valueOf(charT), --count);
+            int count = letterMap.getOrDefault(charT, 0);
+            letterMap.put(charT, --count);
         }
         // 遍历Map
-        Set<Map.Entry<String, Integer>> entries = letterMap.entrySet();
-        for (Map.Entry<String, Integer> entry : entries) {
+        Set<Map.Entry<Character, Integer>> entries = letterMap.entrySet();
+        for (Map.Entry<Character, Integer> entry : entries) {
             if (entry.getValue() < 0) {
-                res.append(entry.getKey());
+                res = entry.getKey();
             }
         }
 
-        return res.toString();
+        return res;
     }
 }

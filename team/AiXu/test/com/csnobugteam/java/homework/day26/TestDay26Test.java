@@ -15,21 +15,23 @@ public class TestDay26Test {
     @Test
     public void testFindAddedLetter() {
         Test01 test01 = new Test01();
+        // 测试用例1
+        String s1 = "abcd";
+        String t1 = "abcde";
+        char expected1 = 'e';
+        assertEquals(expected1, test01.findAddedLetter(s1, t1));
 
-        String result1 = test01.findAddedLetter("abc", "abcd");
-        assertEquals("d", result1);
+        // 测试用例2
+        String s2 = "k";
+        String t2 = "kk";
+        char expected2 = 'k';
+        assertEquals(expected2, test01.findAddedLetter(s2, t2));
 
-        String result2 = test01.findAddedLetter("abc", "zabc");
-        assertEquals("z", result2);
-
-        String result3 = test01.findAddedLetter("abc", "xyzabc");
-        assertEquals("xyz", result3);
-
-        String result4 = test01.findAddedLetter("abc", "abc");
-        assertEquals("", result4);
-
-        String result5 = test01.findAddedLetter("", "");
-        assertEquals("", result5);
+        // 测试用例3（如果有其他测试用例，请继续添加）
+        String s3 = "xy";
+        String t3 = "yxx";
+        char expected3 = 'x';
+        assertEquals(expected3, test01.findAddedLetter(s3, t3));
     }
 
     /**
@@ -39,10 +41,10 @@ public class TestDay26Test {
     public void testFindGoodStringNums() {
         Test02 test02 = new Test02();
 
-        String[] words0 = {"cat", "bt", "hat", "tree"};
-        String chars0 = "atach";
+        String[] words0 = {"abbc", "bt", "hat", "tree"};
+        String chars0 = "abc";
         int result0 = test02.findGoodStringNums(words0, chars0);
-        assertEquals(6, result0);
+        assertEquals(0, result0);
 
         String[] words1 = {"abc"};
         String chars1 = "abc";
@@ -64,8 +66,8 @@ public class TestDay26Test {
         int result4 = test02.findGoodStringNums(words4, chars4);
         assertEquals(0, result4);
 
-        String[] words5 = {};
-        String chars5 = "";
+        String[] words5 = {"dyiclysmffuhibgfvapygkorkqllqlvokosagyelotobicwcmebnpznjbirzrzsrtzjxhsfpiwyfhzyonmuabtlwin","ndqeyhhcquplmznwslewjzuyfgklssvkqxmqjpwhrshycmvrb","ulrrbpspyudncdlbkxkrqpivfftrggemkpyjl","boygirdlggnh","xmqohbyqwagkjzpyawsydmdaattthmuvjbzwpyopyafphx","nulvimegcsiwvhwuiyednoxpugfeimnnyeoczuzxgxbqjvegcxeqnjbwnbvowastqhojepisusvsidhqmszbrnynkyop","hiefuovybkpgzygprmndrkyspoiyapdwkxebgsmodhzpx","juldqdzeskpffaoqcyyxiqqowsalqumddcufhouhrskozhlmobiwzxnhdkidr","lnnvsdcrvzfmrvurucrzlfyigcycffpiuoo","oxgaskztzroxuntiwlfyufddl","tfspedteabxatkaypitjfkhkkigdwdkctqbczcugripkgcyfezpuklfqfcsccboarbfbjfrkxp","qnagrpfzlyrouolqquytwnwnsqnmuzphne","eeilfdaookieawrrbvtnqfzcricvhpiv","sisvsjzyrbdsjcwwygdnxcjhzhsxhpceqz","yhouqhjevqxtecomahbwoptzlkyvjexhzcbccusbjjdgcfzlkoqwiwue","hwxxighzvceaplsycajkhynkhzkwkouszwaiuzqcleyflqrxgjsvlegvupzqijbornbfwpefhxekgpuvgiyeudhncv","cpwcjwgbcquirnsazumgjjcltitmeyfaudbnbqhflvecjsupjmgwfbjo","teyygdmmyadppuopvqdodaczob","qaeowuwqsqffvibrtxnjnzvzuuonrkwpysyxvkijemmpdmtnqxwekbpfzs","qqxpxpmemkldghbmbyxpkwgkaykaerhmwwjonrhcsubchs"};
+        String chars5 = "usdruypficfbpfbivlrhutcgvyjenlxzeovdyjtgvvfdjzcmikjraspdfp";
         int result5 = test02.findGoodStringNums(words5, chars5);
         assertEquals(0, result5);
     }
