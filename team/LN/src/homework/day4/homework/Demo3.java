@@ -1,4 +1,4 @@
-package src.day4.homework;
+package src.homework.day4.homework;
 
 /*
  * @Description:

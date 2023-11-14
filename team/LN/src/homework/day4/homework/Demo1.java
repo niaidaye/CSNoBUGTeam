@@ -1,12 +1,10 @@
-package src.day4.homework;
+package src.homework.day4.homework;
 
 /*
  * @Description:
  * @Author: LN
  *  @Date : 2023/11/13
  */
-
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Iterator;
