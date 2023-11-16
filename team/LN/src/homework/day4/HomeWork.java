@@ -1,4 +1,4 @@
-package src.homework;
+package src.homework.day4;
 
 /*
  * @Description:
@@ -13,7 +13,7 @@ import java.util.Objects;
 /*
 2, 如果List中存储了多个User对象, 去除重复元素(多个重复元素仅保留一个)(假设使用Collection和List的   api)
  */
-public class homework {
+public class HomeWork {
     public static void main(String[] args) {
         // 存储user对象的方法
         List<User> userList = getInitUserList();
