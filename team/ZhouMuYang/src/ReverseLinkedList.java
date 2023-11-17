@@ -1,24 +1,18 @@
-<<<<<<< HEAD
-package src;
-
-public class Main {
-=======
 public class ReverseLinkedList {
->>>>>>> dev_ZhouMuYang
     public static void main(String[] args) {
-        // 翻转链表
-        // a --> b --> c --> d --> e
-        Node e = new Node("e");
-        Node d = new Node("d", e);
-        Node c = new Node("c", d);
-        Node b = new Node("b", c);
-        Node a = new Node("a", b);
+    // 翻转链表
+    // a --> b --> c --> d --> e
+    Node e = new Node("e");
+    Node d = new Node("d", e);
+    Node c = new Node("c", d);
+    Node b = new Node("b", c);
+    Node a = new Node("a", b);
 
-        // e  --> d  -->  c  --> b  --> a
-        Node newLinked = reLinked(a);
+    // e  --> d  -->  c  --> b  --> a
+    Node newLinked = reLinked(a);
 
-        System.out.println(newLinked.data);
-    }
+    System.out.println(newLinked.data);
+}
     /**
      * 翻转链表
      * @param head : 原链表头结点
