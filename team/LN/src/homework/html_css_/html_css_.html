@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- 表格开始，设定单元格之间的间距为10像素-->
+<table cellspacing="10">
+
+    <!-- 注册邮箱-->
+    <tr>
+
+        <td>注册邮箱：</td>
+        <!-- 输入框类型为Email、用于接收邮箱输入-->
+        <td><input type="email" name="email"></td>
+
+    </tr>
+
+
+    <!-- 提示用户还可以用手机注册-->
+    <tr>
+        <td></td>
+        <td>你还可以用手机注册</td>
+    </tr>
+
+
+    <!-- 输入创建密码-->
+    <tr>
+        <td>创建密码</td>
+        <!-- 输入框为password，用于接收密码输入-->
+        <td><input type="password" name="password"></td>
+
+    </tr>
+
+
+    <!-- 输入真实姓名-->
+    <tr>
+
+        <td>真实姓名：</td>
+        <!-- 输入框为text  接收文本输入-->
+        <td><input type="text" name="realname"></td>
+
+    </tr>
+
+
+    <!-- 选择性别-->
+    <tr>
+        <td align="right">性别：</td>
+
+
+        <td>
+            <!-- 单选按钮-->
+            <input type="radio" name="gender" value="male">男
+            <input type="radio" name="gender" value="female">女
+
+        </td>
+    </tr>
+
+
+    <!-- 选择生日-->
+    <tr>
+        <td align="right">生日：</td>
+        <td>
+            <!-- 年 月  日-->
+            <select name="year">
+                <option>2001</option>
+            </select>年
+
+
+            <select name="month">
+                <option>01</option>
+            </select>月
+
+
+            <select name="day">
+                <option>01</option>
+            </select>日
+        </td>
+    </tr>
+
+
+    <!-- 用户状态-->
+    <tr>
+        <td align="right">我正在：</td>
+        <td>
+            <!-- 选择用户当前状态-->
+            <select name="userStatus">
+                <option>玩手机</option>
+                <option>睡觉</option>
+            </select>
+        </td>
+    </tr>
+
+
+    <!-- 显示验证码-->
+    <tr>
+        <td></td>
+        <td>
+            <img src="./verycode.gif"> &nbsp; 看不清，换一张
+        </td>
+    </tr>
+
+
+    <!-- 输入验证码-->
+    <tr>
+        <td align="right">验证码：</td>
+        >
+        <td><input type="text" name="cap"></td>
+    </tr>
+
+
+    <!-- 提交表单-->
+    <tr>
+        <td></td>
+        <td>
+<img src="btn_reg.gif">
+
+        </td>
+    </tr>
+</table>
+
+
+
+
+</body>
+</html>
