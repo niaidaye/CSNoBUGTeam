@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        label {
+            display: inline-block;
+            width: 30%;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 65%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .bg_style {
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+
+<form action="#" method="post" class="bg_style">
+    <h2>用户注册</h2>
+    <div>
+        <label for="email">注册邮箱：</label>
+        <input type="text" id="email" name="email" required>
+        <div style="display: block; width: 100%; text-align: center;">你还可以手机注册</div>
+        <label for="password">创建密码：</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label for="username">真实姓名：</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label>性别：</label>
+        <label><input type="radio" name="gender" value="male"> 男性</label>
+        <label><input type="radio" name="gender" value="female"> 女性</label>
+        <label for="birthdate">出生日期：</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+
+        <label for="my_state">我在：</label>
+        <select id="my_state" name="my_state">
+            <option value="sleep">睡觉</option>
+            <option value="eat">吃饭</option>
+            <option value="go_shoping">逛街</option>
+            <!-- 根据需要添加更多选项 -->
+        </select>
+
+        <label for="#"></label>
+        <input type="image" id="image" name="image" placeholder="看不清，换一张">
+
+        <label for="captcha">验证码：</label>
+        <input type="text" id="captcha" name="captcha" required>
+    </div>
+    <button type="submit">立即注册找好友</button>
+</form>
+
+</body>
+</html>
