@@ -1,40 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .div1{
-            width: 700px;
+        #div1{
+            width: 100px;
             height: 100px;
-            background-color: yellow;
+            font-size: 30px;
+            line-height: 100px;
+            text-align: center;
+            background: red;
+            color: white;
             margin: 0 auto;
         }
-        .div2{
+        #div2{
             width: 100px;
-            height: 40px;
-            background-color: black;
-            color: white;
-            float: left;
+            margin: 0 auto;
             text-align: center;
-            line-height: 40px;
-            border-top: 10px white;
-            border-bottom: 10px yellow;
-        }
-        .div2:hover{
-            background-color: red;
         }
     </style>
 </head>
 <body>
-    <div class="div1">
-        <div class="div2">首页</div>
-        <div class="div2">国内新闻</div>
-        <div class="div2">国内新闻</div>
-        <div class="div2">国内新闻</div>
-        <div class="div2">国内新闻</div>
-        <div class="div2">国内新闻</div>
-        <div class="div2">国内新闻</div>
-    </div>
+
+
+<div id="div2">
+    <button onclick="getname()">点名</button>
+</div>
+
+<script>
+    var list = ["zs", "ls", "wu", "zl"]
+
+    function getname() {
+        if (list.length < 1){
+            alert("点名完毕")
+            return
+        }
+
+        var index = Math.floor(Math.random() * list.length)
+
+        alert(list[index])
+        list.splice(index, 1)
+
+    }
+</script>
+
+
 </body>
 </html>

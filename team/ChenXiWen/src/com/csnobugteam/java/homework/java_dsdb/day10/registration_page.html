@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<table cellspacing="10px">
+  <tr>
+    <td>注册邮箱:</td>
+    <td><input></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>你还可以使用手机注册</td>
+  </tr>
+  <tr>
+    <td>创建密码:</td>
+    <td><input></td>
+  </tr>
+  <tr>
+    <td>真实姓名:</td>
+    <td><input></td>
+  </tr>
+  <tr>
+    <td align="right">性别:</td>
+    <td>
+      <input type="radio">男
+      <input type="radio">女
+    </td>
+  </tr>
+  <tr>
+    <td align="right">生日:</td>
+    <td>
+      <select id="select1"  onchange="changed()">
+      </select>年
+      <select  id="select2"   onchange="changed()">
+      </select>月
+      <select id="select3">
+      </select>日
+    </td>
+  </tr>
+  <tr>
+    <td align="right">我正在:</td>
+    <td>
+      <select>
+        <option>学习</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <img src="verycode.gif" id="img1"> &nbsp; <span onclick="changeimg()">看不清,换一张</span>
+    </td>
+  </tr>
+  <tr>
+    <td align="right">验证码:</td>
+    <td><input id="inputstr"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <img src="btn_reg.gif" onclick="getcode()">
+    </td>
+  </tr>
+</table>
+
+
+<script>
+
+  // 定义图片数组
+  var list = ["1111.png", "1234.png", "2222.png", "3333.png","4567.png"]
+  var tag = -1
+  var listCode = ["1111", "1234", "2222", "3333","4567"]
+
+
+  // 更换图片
+  function changeimg() {
+    var imgNode = document.getElementById("img1")
+    var index = Math.floor(Math.random()*list.length)
+    while (tag == index){
+      index = Math.floor(Math.random()*list.length)
+    }
+    tag = index
+    imgNode.src = list[index]
+  }
+
+  // 验证输入是否合法
+  function getcode() {
+    var inputStr = document.getElementById("inputstr").value
+    if (tag == -1){
+      if ('BnKsU' == inputStr){
+        alert("验证码正确")
+      }else {
+        alert("验证码错误")
+      }
+      return
+    }
+
+    if (listCode[tag] == inputStr){
+      alert("验证码正确")
+    }else {
+      alert("验证码错误")
+    }
+
+
+  }
+
+</script>
+</body>
+</html>

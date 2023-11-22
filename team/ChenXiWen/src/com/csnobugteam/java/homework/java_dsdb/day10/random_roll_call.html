@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 100px;
+            background-color: cornflowerblue;
+            color: black;
+            /*margin: 0 auto;*/
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+
+</div>
+<button onclick="call()">随机点名</button>
+
+<script>
+    function call() {
+        var names = ["张三", "李四", "王五", "赵六", "孙七"];
+        var index = Math.random() * 5;
+        var name = names[index];
+        var textNode = document.createTextNode(name);
+        var divNode = document.getElementById("div1");
+        divNode.appendChild(textNode);
+    }
+</script>
+</body>
+</html>
