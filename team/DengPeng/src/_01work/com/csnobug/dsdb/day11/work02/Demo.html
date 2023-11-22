@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        /* 包裹4个a标签的容器样式 */
+        .link-container {
+            width: 100px;
+            height: 250px;
+            text-align: center; /* 让内部元素居中 */
+            border: 2px solid black; /* 容器周围线段 */
+            padding: 10px; /* 添加一些内边距，使界面看起来更好 */
+            float: left;
+
+            margin: 0 20px; /* 设置左右间隔为10像素 */
+        }
+
+        /* a标签样式 */
+        .link-container a {
+            text-decoration: none;
+            display: block; /* 让每个链接占据一行 */
+            border-bottom: 1px solid black; /* 上下分割线样式 */
+            padding: 8px; /* 添加一些内边距，使界面看起来更好 */
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <div class="link-container" id="linkBlock">
+
+        <a href="https://www.bilibili.com/" target="iframeTarget">
+            首页
+        </a>
+        <a href="https://www.baidu.com/" target="iframeTarget">
+            百度
+        </a>
+        <a href="https://www.taobao.com/" target="iframeTarget">
+            淘宝
+        </a>
+        <a href="https://www.jd.com/" target="iframeTarget">
+            京东
+        </a>
+
+    </div>
+
+    <div>
+        <iframe src="https://www.bilibili.com/" width="800px" height="600px" name="iframeTarget"></iframe>
+    </div>
+</div>
+
+<script>
+    // 获取所有超链接元素
+    var linkElements = document.querySelectorAll('#linkBlock a');
+
+    // 获取iframe元素
+    var iframeElement = document.querySelector('iframe[name="iframeTarget"]');
+
+    // 为每个超链接添加点击事件监听器
+    linkElements.forEach(function(linkElement) {
+        linkElement.addEventListener('click', function(event) {
+            // 阻止默认的链接跳转行为
+            event.preventDefault();
+
+            // 获取超链接的目标URL
+            var targetUrl = linkElement.getAttribute('href');
+
+            // 在iframe中加载目标URL
+            iframeElement.src = targetUrl;
+        });
+    });
+</script>
+
+</body>
+</html>

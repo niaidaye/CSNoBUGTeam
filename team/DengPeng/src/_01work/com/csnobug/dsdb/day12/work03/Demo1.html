@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>注册邮箱:</td>
+        <td><input></td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>你还可以手机注册</td>
+    </tr>
+
+    <tr>
+        <td>创建密码:</td>
+        <td><input></td>
+    </tr>
+
+    <tr>
+        <td>真实姓名:</td>
+        <td><input></td>
+    </tr>
+
+    <tr>
+        <td align="right">性别:</td>
+        <td>
+            <input type="radio" name="gender">男
+            <input type="radio" name="gender">女
+        </td>
+    </tr>
+
+    <tr>
+        <td align="right">生日:</td>
+        <td>
+            <select>
+                <option selected="selected">2001</option>
+                <option>2002</option>
+                <option>2003</option>
+                <option>2004</option>
+                <option>2005</option>
+            </select>年
+            <select>
+                <option selected="selected">01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+            </select>月
+            <select>
+                <option selected="selected">01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+            </select>日
+        </td>
+    </tr>
+
+    <tr>
+        <td align="right">我正在:</td>
+        <td>
+            <select>
+                <option selected="selected">睡觉</option>
+                <option>吃饭</option>
+                <option>打豆豆</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>
+            <img src="day12_js/verycode.gif" id="img1"><span onclick="changeImage()">看不清换一张</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td align="right">验证码:</td>
+        <td><input id="inputverify"></td>
+    </tr>
+
+    <style>
+        .sharp-button {
+            align-content: center;
+            display: inline-block;
+            padding: 10px 20px; /* 设置按钮内边距，可根据需要调整 */
+            background-color: #208000; /* 设置按钮背景颜色 */
+            color: #fff; /* 设置文字颜色 */
+            text-decoration: none; /* 去除下划线 */
+            border: none; /* 去除边框 */
+            border-radius: 1px; /* 设置按钮圆角，可根据需要调整 */
+            cursor: pointer; /* 设置鼠标悬停样式为手型 */
+        }
+
+    </style>
+    <tr>
+        <td></td>
+        <td>
+            <a href="#" class="sharp-button" onclick="checkVerifyCode()">立即注册找好友</a>
+        </td>
+    </tr>
+</table>
+
+<script>
+    var imgPaths = ["day12_js/1111.png", "day12_js/1234.png", "day12_js/2222.png", "day12_js/3333.png", "day12_js/4567.png"]
+    var rightCode = ["1111", "1234", "2222", "3333", "4567"]
+    // 默认的图片的索引设置为-1
+    var currentIndex = -1;
+
+    function changeImage() {
+        // 我点了看不清，换一张。 就来一张随机的。
+        var randomIndex = Math.floor(Math.random() * imgPaths.length);
+        while (randomIndex == currentIndex) {
+            randomIndex = Math.floor(Math.random() * imgPaths.length);
+        }
+
+        var imgNode = document.getElementById("img1");
+        imgNode.src = imgPaths[randomIndex];
+        currentIndex = randomIndex;
+    }
+
+    function checkVerifyCode() {
+        // alert("checkVerifyCode")
+
+        var inputVerifyCode = document.getElementById("inputverify").value;
+        var rightVerifyCode = rightCode[currentIndex];
+
+        if (currentIndex == -1) {
+            rightVerifyCode = "bnksu";
+        }
+
+        if (rightVerifyCode == inputVerifyCode) {
+            alert("输入正确")
+        } else {
+            alert("输入错误")
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    2, 实现一个随机点名功能页面
+-->
+
+<div>
+
+    <button onclick="selectPersonName()">
+        随机点名
+    </button>
+
+</div>
+
+<script>
+
+    var personName = ["张三", "李四", "王五", "赵六", "田七"];
+
+    function selectPersonName() {
+        var randomIndex = Math.floor(Math.random() * personName.length);
+
+        alert("点到的同学名字是:" + personName[randomIndex]);
+    }
+
+</script>
+
+</body>
+</html>
