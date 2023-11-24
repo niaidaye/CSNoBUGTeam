@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        #app {
+            width: 200px;
+            height: 60px;
+            margin: 0 auto;
+            background-color: blueviolet;
+        }
+        .div1{
+            text-align: center;
+        }
+        .div2{
+            text-align: center;
+            line-height: 35px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-bind="studentName" class="div1">
+        {{text}}
+    </div>
+
+    <div class="div2">
+        <button v-on:click="callName">
+            点名
+        </button>
+    </div>
+</div>
+
+<script>
+    var names = ["zs", "ls", "ww", "zl"]
+    new Vue({
+        el:"#app",
+        data:{
+            text:"zs"
+        },
+        methods:{
+            callName:function () {
+                var index = Math.floor(Math.random() * names.length);
+                this.text = names[index];
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
