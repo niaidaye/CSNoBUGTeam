@@ -1,0 +1,73 @@
+<!--11/20-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--对齐用table tr td-->
+<table>
+    <tr>
+        <td>注册邮箱:</td>
+        <td><input></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><span>你还可以手动注册</span></td>
+    </tr>
+    <tr>
+        <td>创建密码:</td>
+        <!--input类型用type-->
+        <td><input type="password"></td>
+    </tr>
+    <tr>
+        <td>真实姓名:</td>
+        <td><input></td>
+    </tr>
+    <tr>
+        <td>性别:</td>
+        <td><input type="radio" name="gender">男
+            <input type="radio" name="gender">女
+        </td>
+    </tr>
+    <tr>
+        <td>生日:</td>
+        <td>
+            <!--select和option是成套标签用于下拉选择-->
+            <select>
+                <!--selected表示默认-->
+                <option selected>2011</option>
+                <option>2011</option>
+                <option>2011</option>
+            </select>年
+            <select>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+            </select>月
+            <select>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+            </select>日
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <!--img注意路径，在前端写  相对路径，是在html同级开始找。-->
+            <img src="./verycode.gif" alt="图片加载失败..">
+            <a href="#">看不清换一张</a>
+        </td>
+    </tr>
+    <tr>
+        <td>验证码:</td>
+        <td><input></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><img src="./verycode.gif"alt="图片加载失败.."></td>
+    </tr>
+</table>
+</body>
+</html>

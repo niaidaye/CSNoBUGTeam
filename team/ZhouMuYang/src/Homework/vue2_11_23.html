@@ -1,0 +1,153 @@
+<!--通过Vue操作实现如下:在我们以前html作业的基础上, 实现注册页面功能:-->
+<!--a,点击"看不清换一张", 会切换图片 (可以用我切好的这几个图片)-->
+<!--b,点击立即注册找好友, 会判断(能alert一下)输入的验证码和当前图片代表的验证码是否一致-->
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="root">
+
+
+    <table cellspacing="10px">
+        <tr>
+            <td>注册邮箱:</td>
+            <td><input></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>你还可以手机注册</td>
+        </tr>
+        <tr>
+            <td>创建密码:</td>
+            <td><input></td>
+        </tr>
+        <tr>
+            <td>真实姓名:</td>
+            <td><input></td>
+        </tr>
+        <tr>
+            <td align="right">  性别:</td>
+            <td>
+                <input type="radio">男
+                <input type="radio">女
+            </td>
+        </tr>
+        <tr>
+            <td align="right">生日:</td>
+            <td>
+                <select id="selecty"   onchange="changed()">
+                    <option v-for="item in listy" v-bind:key="item">{{item}}</option>
+                </select>年
+                <select id="selectm"  onchange="changed()">
+                    <option v-for="item in listm" v-bind:key="item">{{item}}</option>
+                </select>月
+                <select  id="selectd">
+                    <option v-for="item in listd" v-bind:key="item">{{item}}</option>
+                </select>日
+            </td>
+        </tr>
+        <tr>
+            <td align="right">我正在:</td>
+            <td>
+                <select>
+                    <option>睡觉</option>
+                    <option>学习</option>
+                    <option>上课</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <img v-bind:src="imgurl" id="img1"> &nbsp;&nbsp; <span v-on:click="changeimg">看不清,换一张</span>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                验证码:
+            </td>
+            <td>
+                <input id="inputstr" v-model="inputstr">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <img src="btn_reg.gif" v-on:click="getcode">
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    new Vue({
+        el: "#root",
+        data: {
+            listUrl : ['1111.png', '1234.png', '2222.png', '3333.png', '4567.png'],
+            listCode : ['1111', '1234', '2222', '3333', '4567'],
+            tag : -1,  // 专门用来标记上一次选中下标
+            imgurl: 'verycode.gif',
+            inputstr: '',
+            listy: ["2020"],
+            listm: ["01"],
+            listd: ["01"]
+        },
+        mounted: function() {
+
+            this.listy = []
+            for (var i = 2022; i >= 1949 ; i--) {
+                this.listy.push(i)
+            }
+            this.listm = []
+            for (var i = 1; i <= 12 ; i++) {
+                this.listm.push(i)
+            }
+            this.listd = []
+            for (var i = 1; i <= 31 ; i++) {
+                this.listd.push(i)
+            }
+        },
+        methods: {
+            changeimg: function () {
+
+                var index = Math.floor(Math.random() * this.listUrl.length)
+                while (this.tag == index){
+                    index = Math.floor(Math.random() * this.listUrl.length)
+                }
+                this.tag = index
+                this.imgurl = this.listUrl[this.tag]
+            },
+            getcode: function () {
+
+
+                if (this.tag == -1){
+                    // 初始情况
+                    if (this.inputstr == 'BnKsU'){
+                        alert("验证码正确")
+                    }else {
+                        alert("验证码错误")
+                    }
+                    return
+                }
+
+                if (this.inputstr == this.listCode[this.tag]){
+                    alert("验证码正确")
+                }else {
+                    alert("验证码错误")
+                }
+
+            }
+        }
+    })
+
+
+</script>
+
+
+</body>
+</html>

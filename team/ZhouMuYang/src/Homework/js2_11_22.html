@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table cellspacing="10">
+    <tr>
+        <td>注册邮箱:</td>
+        <td><input></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>你还可以使用手机注册</td>
+    </tr>
+    <tr>
+        <td>创建密码:</td>
+        <td><input></td>
+    </tr>
+    <tr>
+        <td>真实姓名:</td>
+        <td><input></td>
+    </tr>
+    <tr>
+        <td align="right">性别:</td>
+        <td>
+            <input type="radio" name="aaa">男
+            <input type="radio" name="aaa">女
+        </td>
+    </tr>
+    <tr>
+        <td align="right">生日:</td>
+        <td>
+            <select>
+                <option>2001</option>
+            </select>年
+            <select>
+                <option>01</option>
+            </select>月
+            <select>
+                <option>01</option>
+            </select>日
+
+        </td>
+    </tr>
+    <tr>
+        <td align="right">我正在:</td>
+        <td>
+            <select>
+                <option>玩手机</option>
+                <option>睡觉</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <img src="./verycode.gif" id="img1"> &nbsp;
+            <button onclick="changePic()">看不清,换一张</button>
+        </td>
+    </tr>
+    <tr>
+        <td align="right" >验证码:</td>
+        <td><input id="inputstr"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <!--记得加（）-->
+            <img src="btn_reg.gif" onclick="verifyIdentifyingCode()">
+        </td>
+    </tr>
+</table>
+
+<script>
+    var imgSrcs = ["./verycode.gif","./4567.png", ]
+    var imgNum=["bnksu","4567"];
+    var currentIndex = 0;
+
+    function changePic() {
+        var randomIndex = Math.floor(Math.random() * imgSrcs.length);
+        while (randomIndex ==currentIndex) {
+            randomIndex = Math.floor(Math.random() * imgSrcs.length);
+        }
+        var imgNode = document.getElementById("img1");
+        imgNode.src = imgSrcs[randomIndex];
+        currentIndex = randomIndex;
+    }
+    function verifyIdentifyingCode() {
+        //getElementById():  根据id获取一个结点
+        var inputStr = document.getElementById("inputstr").value;
+        if (inputStr == imgNum[currentIndex]) {
+            alert("right");
+        } else {
+            alert("wrong")
+        }
+    }
+</script>
+</body>
+</html>

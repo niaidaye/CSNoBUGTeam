@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="randomRollCall()">随机点名</button>
+<p id="result"></p>
+
+<script>
+    var names = ["a", "b", "c", "d", "e"];
+    var currentIndex = -1;
+
+    function randomRollCall() {
+        var randomIndex = Math.floor(Math.random() * names.length);
+        while (currentIndex ==randomIndex) {
+            //== 是相等运算符，它比较两个值是否相等。在比较时，会进行类型转换，使得比较的两个值拥有相同的类型后再进行比较。
+            // === 是严格相等运算符，它不仅比较两个值是否相等，还要求它们的类型也相同。不会进行类型转换。
+            randomIndex = Math.floor(Math.random() * names.length);
+        }
+        currentIndex = randomIndex;
+        var resultElement = document.getElementById("result");//获取元素文本内容
+        resultElement.textContent = names[randomIndex];//设置元素文本内容
+    }
+</script>
+</body>
+</html>

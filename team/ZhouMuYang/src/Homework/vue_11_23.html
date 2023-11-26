@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        .div1{
+            line-height: 100px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .div2{
+            text-align: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="root">
+    <div class="div1" >
+        {{text}}
+    </div>
+    <div class="div2">
+        <button v-on:click="getName">点名</button>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: "#root",
+        data: {
+            text: "",
+            list: ["1", "2", "3", "4"]
+        },
+        methods: {
+            getName: function () {
+                if (this.list.length < 1){
+                    alert("点名结束")
+                }
+                var index = Math.floor(Math.random() * this.list.length)
+                this.text =  this.list[index]
+                this.list.splice(index, 1) //从索引 index 开始删除 1 个元素
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
