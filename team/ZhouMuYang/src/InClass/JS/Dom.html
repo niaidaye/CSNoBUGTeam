@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="randomRollCall()">随机点名</button>
+<p id="result"></p>
+
+<script>
+    var names=["a", "b", "c", "d", "e"];
+    var currentIndex=-1;
+    function randomRollCall() {
+        var randomIndex=Math.floor(Math.random()*names.length);
+        while (currentIndex ===randomIndex) {
+            randomIndex=Math.floor(Math.random()*names.length);
+        }
+        currentIndex=randomIndex;
+        console.log(names[randomIndex]);
+        // var resultElement = document.getElementById("result");
+        // resultElement.textContent = names[randomIndex];
+    }
+</script>
+</body>
+</html>

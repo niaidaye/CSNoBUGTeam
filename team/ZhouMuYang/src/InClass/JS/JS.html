@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>src=""</script>
+</head>
+<body>
+    <script>
+        <!--一般把script标签写在body前-->
+        // alert("f");
+        //var a=10;
+        //js对大小写敏感
+       alert("dd");
+        //console.log(a);
+        //js会根据输入的值确定类型
+        //console.log(String(a)==String);
+        //js里面Number
+
+        //数组
+        var cars=["audi","bmw"];
+
+        //对象
+        var person={firstname: "bill"};
+        console.log(person);
+
+        //在数据传输过程中可以用json完成
+        var user={"name": "zs"};
+
+        //前端和后端是通过约定接口完成功能实现的
+        //1.接口名
+        //2.参数
+        //3.返回的数据
+
+        function F() {
+            alert("ee");
+        }
+
+        function f(n) {
+            return n+1;
+        }
+
+        // F();
+
+        //==判断值，===不仅判断值还判断类型
+        //空字符串 null
+        //Nan不是一个数字
+        //不赋值为undefined
+
+        //用fori遍历数组
+        var obj = {name: "zs", age: 18, address: "hubei"};
+        for (let objKey in obj) {
+            console.log(objKey + "  " + obj[objKey]);
+        }
+
+        var array = [1, 2, "hello", "java", true];
+        for (let i = 0; i < array.length; i++) {
+            console.log(array[i])
+        }
+        var array = [d, dd, "d"];
+        for (let i = 0; i < array.length; i++) {
+            console.log(array[i]);
+        }
+
+    </script>
+</body>
+</html>
