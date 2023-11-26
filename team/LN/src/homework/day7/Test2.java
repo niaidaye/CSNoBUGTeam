@@ -1,22 +1,25 @@
+/*
 package src.homework.day7;
 
+*/
 /*
  * @Description:
  * @Author: LN
  *  @Date : 2023/11/16
- */
+ *//*
+
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static src.homework.day7.TransactionRecord.transactions;
 
 
+*/
 /*
  基于提供的三个参考类型: 实现
  找出2011年发生的交易记录, 按照从低到高交易额排序
@@ -27,8 +30,9 @@ import static src.homework.day7.TransactionRecord.transactions;
  打印所有发生在北京的交易记录金额
  所有交易中最高的交易是多少
  所有交易中, 交易最低的交易信息
- */
-public class Demo2 {
+ *//*
+
+public class Test2 {
     public static void main(String[] args) {
         // 1: 找出2011年发生的交易记录, 按照从低到高交易额排序
 
@@ -153,3 +157,4 @@ public class Demo2 {
     }
 }
 
+*/
