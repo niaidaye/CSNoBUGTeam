@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>注册登录页面</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #container {
+      border: 1px solid #ccc;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      width: 400px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,th {
+      padding: 8px;
+      text-align: justify;
+      text-align-last:justify ;
+    }
+
+    input, select {
+      width: calc(100% - 12px);
+      padding: 6px;
+      box-sizing: border-box;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    form {
+      text-align: center;
+
+    }
+    /* 新增样式：立即注册按钮的颜色 */
+    input[type="submit"] {
+      background-color: #00cc00; /* 绿色 */
+      color: #fff; /* 文本颜色 */
+      padding: 10px; /* 调整按钮内边距 */
+      border: none; /* 去掉边框 */
+      cursor: pointer;
+    }
+    input[type="hobbies[]"] {
+      text-align: center;
+      background-color: #00cc00; /* 绿色 */
+      color: #fff; /* 文本颜色 */
+      padding: 10px; /* 调整按钮内边距 */
+      border: honeydew; /* 去掉边框 */
+      cursor: pointer;
+    }
+
+    .activities-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 150px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+    }
+
+    .activities {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .activity-item {
+      flex: 0 0 auto;
+      margin-bottom: 5px;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 0.5px;
+      color: #007bff;
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+
+    .gender-options {
+      display: flex;
+    }
+
+    .gender-options input {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <form action="注册处理页面.php" method="post">
+    <table>
+      <tr>
+        <td><label for="email">注册邮箱</label></td>
+        <!-- 添加一段文字 -->
+
+        <td><input type="email" name="email" id="email" required></td>
+        <!-- 在表格内部的注册邮箱表格正下方添加一行 -->
+      <tr>
+        <td colspan="2" style="text-align: -moz-right;">手机号注册也可以</td>
+      </tr>
+<!--        <p>手机号注册也可以</p>-->
+        <tr>
+
+    </tr>
+      </tr>
+      <tr>
+        <td><label for="password">创建密码</label></td>
+        <td><input type="password" name="password" id="password" required></td>
+      </tr>
+      <tr>
+        <td><label for="realname">真实姓名</label></td>
+        <td><input type="text" name="realname" id="realname"></td>
+      </tr>
+      <tr>
+        <td><label>性别</label></td>
+        <td class="gender-options">
+          <input type="radio" name="gender" id="male" value="male"><label for="male">男</label>
+          <input type="radio" name="gender" id="female" value="female"><label for="female">女</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="birthday">生日</label></td>
+        <td><input type="date" name="birthday" id="birthday"></td>
+      </tr>
+      <tr>
+        <td><label>我正在</label></td>
+        <td>
+          <select multiple="multiple" name="hobbies[]" id="hobbies"size="1" style="text-align:justify-all;">
+            <option>睡觉</option>
+            <option>唱歌</option>
+            <option>读书</option>
+            <option>打篮球</option>
+            <option>学习</option>
+              <!-- Add more activities here -->
+
+<!--            <div class="prev" onclick="scrollActivities(-1)"></div>-->
+<!--            <div class="next" onclick="scrollActivities(1)"></div>-->
+
+<!--          <div class="hobbies-toggle" onclick="toggleHobbies()">展开运动爱好</div>-->
+        </td>
+      </tr>
+      <tr>
+        <td>图片验证码</label></td>
+        <td>
+          <img src="/Users/honghaomingdemac/Desktop/Html/src/leedcode19/homew.jpg" alt="验证码">
+        </td>
+      </tr>
+      <tr>
+        <td><label for="captcha_input">验证码输入</label></td>
+        <td><input type="text" name="captcha" id="captcha_input" required></td>
+      </tr>
+
+    </table>
+
+    <input type="submit"  value="立即注册找好友" >
+  </form>
+
+  <a href="找好友页面.php">找好友</a>
+</div>
+
+<script>
+  function scrollActivities(direction) {
+    const container = document.querySelector('.activities');
+    const scrollAmount = 25; /* Set the scroll amount according to your needs */
+    container.style.transform = `translateY(${direction * scrollAmount}px)`;
+  }
+</script>
+
+</body>
+</html>
