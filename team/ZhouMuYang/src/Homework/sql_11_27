@@ -1,0 +1,36 @@
+create table t_city(
+	id int,
+	name varchar(20),
+	country  varchar(20),
+	num int,
+	province varchar(20)
+)character set utf8;
+
+insert into t_city values (1,'上海','中国',50,'上海');
+insert into t_city values (2,'旧金山','美国',100,'加利福利亚州');
+insert into t_city values (3,'东京','日本',150,'东京都');
+insert into t_city values (4,'纽约','美国',200,'纽约州');
+insert into t_city values (5,'莫斯科','俄罗斯',300,'莫斯科州');
+insert into t_city values (6,'南京','中国',150,'江苏');
+insert into t_city values (6,'苏州','中国',250,'江苏');
+insert into t_city values (6,'合肥','中国',250,'安徽');
+
+select * from t_city;
+
+select * from t_city where country = '中国';//单引号
+
+select province,count(id) as total,GROUP_CONCAT(name)
+as list from t_city where country = '中国' group by province;
+//GROUP_CONCAT()函数会把每个分组的字段值都拼接显示出来
+
+select country,count(*) as total from t_city group by country having total > 5 order by total;
+//ORDER BY <字段名> [ASC|DESC];
+
+
+统计每个国家的城市个数,并且只显示超过5个城市的国家并按照从大到小排序,并且只显示排名前三
+select country,count(*) as total from t_city group by country having total > 5 order by total  desc limit
+    -- 从第一条开始拿
+    select * from students limit 5;
+    -- limit offsetNumer,number 偏移数目，需要限制的总数
+    -- 2,5 代表从第三个开始拿 总共拿回来5个
+    select * from students limit 2,5;

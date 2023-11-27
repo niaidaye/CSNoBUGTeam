@@ -1,0 +1,49 @@
+查询全体学生的详细记录。
+	select * from student;
+
+查询全体学生的姓名、出生年份和所属部门 [补] 使用列别名改变查询结果的列标题
+ 	select name,(2020 - age) as year,dept from student;
+
+查询所有年龄在20岁以下的学生姓名及其年龄。
+	select name,age from student where age < 20;
+
+查询年龄在20~23岁（包括20岁和23岁）之间的学生的姓名、系别和年龄。
+	select name,dept,age from student where age between 20 and 23;
+
+查询年龄不在20~23岁之间的学生姓名、系别和年龄。
+	select name,dept,age from student where age < 20 or age > 23;
+
+查询信息系、数学系和计算机系学生的姓名和性别。
+	select name,gender from student where dept in ('信息系','数学系','计算机科学系');
+
+查询既不是信息系、数学系，也不是计算机科学系的学生的姓名和性别。
+	select name,gender from student where dept not in ('信息系','数学系','计算机科学系');
+
+查询学号为200518的学生的详细情况。
+	select * from student where id = '201508';
+
+查询所有姓刘学生的姓名、学号和性别。
+	select name,id,gender from student where name like '刘%';
+查询姓“李”且全名为两个汉字的学生的姓名。
+ 	select name from student where name like '李_';
+
+查询名字中第2个字为“立"字的学生的姓名和学号。
+	select name,id from student where name like '_立_';
+
+查询所有不姓刘的学生姓名。
+	select name from student where name not like '刘%';
+
+查询学号在201801~201809之间的学生姓名。
+	select name from student where name id between '201801' and '201809';
+
+查询不同院系学生的人数。
+	select dept,count(id) as number from student group by dept_id;
+
+查询不同院系学生的平均年龄，并以降序排序。
+	select dept,avg(age) as avg_age from student group by dept_id order by avg_age desc;
+
+查询计算机系年龄在20岁以下的学生姓名。
+	select name from student where dept = '计算机系' and age < 20;
+
+查询全体学生情况，查询结果按所在系的系号升序排列，同一系中的学生按年龄降序排列。
+	select * from student order by dept asc,age desc;

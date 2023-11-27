@@ -1,0 +1,40 @@
+创建库
+create database java55th;
+使用库
+use java55th;
+
+create table student(
+	id int,
+	name varchar(20),
+	chinese float,
+	english float,
+	math float
+);
+-- 请添加2列信息，出生日期，籍贯。
+alter table student add birthday date;
+alter table student add native_place varchar(20);
+
+-- 请修改语文成绩的数据类型为int型
+alter table student modify chinese int;
+-- 请在里面插入10名学生数据
+-- 首先修改name这一列的字符集，然后再插入，否则默认的字符集为Latin1，插入中文会报错
+insert into student values (1,'张三',80,80,80,'1999-10-11','广州');
+insert into student values (2,'李四',81,81,81,'1998-10-11','深圳');
+insert into student values (3,'王五',82,82,82,'1997-10-11','佛山');
+insert into student values (4,'赵六',83,83,83,'1996-10-11','湛江');
+insert into student values (5,'张翼德',84,84,84,'1995-10-11','承德');
+insert into student values (6,'张益达',85,85,85,'1994-10-11','上海');
+insert into student values (7,'大乔',86,86,86,'1993-10-11','苏州');
+insert into student values (8,'小乔',87,87,87,'1993-12-11','苏州');
+insert into student values (9,'张麻子',88,88,88,'1991-10-11','鹅城');
+insert into student values (10,'段王爷',49,59,29,'1990-10-11','大理');
+-- 假设10名同学中有同姓的，如王，请找出姓王同学的信息
+select * from student where name like '张%';
+-- 请找出各科不及格学生的信息
+select * from student where math < 60 and chinese < 60 and english < 60;
+-- 请找出有任何一科不及格学生的名称
+select * from student where math < 60 or chinese < 60 or english < 60;
+-- 请找出两科成绩在90分以上的学生名称
+select * from student where (math >= 90 and english >= 90) or (chinese >= 90 and english >= 90) or (math >= 90 and chinese >= 90);
+-- 请找出没有一科挂科的学生名称
+select * from student where math >= 60 and english >= 60 and chinese >= 60;
