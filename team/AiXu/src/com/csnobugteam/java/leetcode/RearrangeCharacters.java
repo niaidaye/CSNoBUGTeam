@@ -6,7 +6,7 @@ package com.csnobugteam.java.leetcode;
  * @author aixu
  * @since 2023/11/17
  */
-public class Solution {
+public class RearrangeCharacters {
 
     /**
      * 给你两个下标从 0 开始的字符串 s 和 target 。你可以从 s 取出一些字符并将其重排，得到若干新的字符串。
