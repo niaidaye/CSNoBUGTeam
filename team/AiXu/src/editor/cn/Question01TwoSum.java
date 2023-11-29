@@ -3,7 +3,7 @@ package editor.cn;
 import java.util.HashMap;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+public class Question01TwoSum {
     public int[] twoSum(int[] nums, int target) {
         // 维护 val -> index 的映射
         HashMap<Integer, Integer> valToIndex = new HashMap<>();

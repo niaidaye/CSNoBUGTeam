@@ -40,8 +40,6 @@ public class FliesUtil {
 
     // 字符输出流
     public static void fileWriteByByte(OutputStream outputStream, char[] date) {
-        // 批量
-        byte[] bytes = new byte[1024];
         // 创建文件输出流
         try (BufferedOutputStream output = new BufferedOutputStream(outputStream)) {
             output.write(System.lineSeparator().getBytes());
