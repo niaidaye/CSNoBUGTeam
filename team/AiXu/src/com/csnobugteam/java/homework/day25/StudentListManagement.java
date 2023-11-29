@@ -63,36 +63,36 @@ public class StudentListManagement {
 
     public static void main(String[] args) {
         StudentListManagement studentListManagement = new StudentListManagement();
-        Scanner scanner = new Scanner(System.in);
-
-        // 添加学生
-        System.out.println("请输入学生姓名，输入0结束添加：");
-        String studentName;
-        do {
-            studentName = scanner.nextLine();
-            if (!"0".equals(studentName)) {
-                boolean success = studentListManagement.addStuByName(studentName);
-                if (success) {
-                    System.out.println("添加成功！");
-                } else {
-                    System.out.println("添加失败，请检查输入。");
+        try (Scanner scanner = new Scanner(System.in)) {
+            // 添加学生
+            System.out.println("请输入学生姓名，输入0结束添加：");
+            String studentName;
+            do {
+                studentName = scanner.nextLine();
+                if (!"0".equals(studentName)) {
+                    boolean success = studentListManagement.addStuByName(studentName);
+                    if (success) {
+                        System.out.println("添加成功！");
+                    } else {
+                        System.out.println("添加失败，请检查输入。");
+                    }
                 }
+            } while (!"0".equals(studentName));
+
+
+            // 显示学生名单
+            System.out.println("当前学生名单：");
+            studentListManagement.displaysCurrentStudentList();
+
+            // 删除学生
+            System.out.println("请输入要删除的学生姓名：");
+            String studentToRemove = scanner.next();
+            boolean removeSuccess = studentListManagement.removeStuByName(studentToRemove);
+            if (removeSuccess) {
+                System.out.println("删除成功！");
+            } else {
+                System.out.println("删除失败，学生名单可能为空或未找到该学生。");
             }
-        } while (!"0".equals(studentName));
-
-
-        // 显示学生名单
-        System.out.println("当前学生名单：");
-        studentListManagement.displaysCurrentStudentList();
-
-        // 删除学生
-        System.out.println("请输入要删除的学生姓名：");
-        String studentToRemove = scanner.next();
-        boolean removeSuccess = studentListManagement.removeStuByName(studentToRemove);
-        if (removeSuccess) {
-            System.out.println("删除成功！");
-        } else {
-            System.out.println("删除失败，学生名单可能为空或未找到该学生。");
         }
 
         // 再次显示学生名单
