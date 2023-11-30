@@ -1,43 +1,77 @@
 package com.csnobugteam.java.utils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.*;
+import java.util.Properties;
 
 /**
  * JDBC连接工具类
+ * 
  * @author aixu
  */
 public class JDBCUtils {
 
-    private static final String DB_URL = "jdbc:mysql://mysql.aixudebug.top:3306/db_wangdao_homework?characterEncoding=utf8&useSSL=false";
-    private static final String USER = "aixu";
-    private static final String PASSWORD = "XXXXXX";
+    static String url;
+    static String username;
+    static String password;
+    static String driver;
 
-    public static Connection getConnection() {
+    static {
+
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileInputStream("jdbc.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        url = properties.getProperty("url");
+        username = properties.getProperty("username");
+        password = properties.getProperty("password");
+        driver = properties.getProperty("driverClassName");
+    }
+
+
+    // 获取连接
+    public static Connection getConnection(){
+
         Connection connection = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-        } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
+            Class.forName(driver);
+            connection = DriverManager.getConnection(url, username, password);
+        }catch (Exception ex) {
+            ex.printStackTrace();
         }
+
         return connection;
     }
 
-    public static void closeConnection(Connection connection) {
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
 
-    public static void executeQuery(Connection connection, String query) throws SQLException {
-        Statement statement = connection.createStatement();
-        statement.execute(query);
+
+    // 关闭资源
+    public static void  close(Connection connection, PreparedStatement statement, ResultSet resultSet){
+
+        try {
+
+            if (resultSet != null) resultSet.close();
+            if (statement!= null) statement.close();
+            if (connection != null) connection.close();
+
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+
+    }
+    public static void  close(Connection connection){
+
+        try {
+            if (connection != null) connection.close();
+
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }
