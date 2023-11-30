@@ -1,4 +1,4 @@
-package com.csnobugteam.java.homework.java_dsdb.day16;
+package com.csnobugteam.java.homework.java_dsdb.day16.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;

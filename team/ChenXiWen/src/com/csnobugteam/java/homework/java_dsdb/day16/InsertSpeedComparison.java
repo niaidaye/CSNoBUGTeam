@@ -1,5 +1,6 @@
 package com.csnobugteam.java.homework.java_dsdb.day16;
 
+import com.csnobugteam.java.homework.java_dsdb.day16.utils.JDBCUtil;
 import org.junit.Test;
 
 import java.sql.Connection;
