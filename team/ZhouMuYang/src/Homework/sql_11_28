@@ -1,0 +1,20 @@
+请查出特定姓名的导师所带研究生的姓名。
+select t.name,group_concat(s.name) from t_staff as t inner join t_stu as s
+on t.id = s.tutorid and t.name = '邹华'; //这里用and t.name = '邹华'不能用where t.name = '邹华'
+
+请找出选择哪个研究方向的导师最多。
+select direction,count(1) as tutor_number from t_staff group by direction
+order by tutor_number desc limit 1;
+
+-- 1.请查出每个导师所带研究生的姓名。
+select t.name, group_concat(s.name) from t_staff as t left join t_stu as s on t.id = s.tutorid group by t.id;
+-- 2.清查出特定姓名的导师所带研究生的姓名。
+select t.name,group_concat(s.name) from t_staff as t inner join t_stu as s on t.id = s.tutorid and t.name = '邹华';
+-- 3.请查出每个导师所带研究生的数量。
+select t.name,count(1) as stu_number from t_staff as t left join t_stu as s on t.id = s.tutorid group by t.id;
+-- 4.请查出每个导师所带的男研究生的数量。
+select t.name,count(1) as stu_number from t_staff as t inner join t_stu as s on t.id = s.tutorid and s.gender = 'male' group by t.id;
+-- 5.请找出选择哪个研究方向的导师最多。
+select direction,count(1) as tutor_number from t_staff group by direction order by tutor_number desc limit 1;
+-- 6.请找统计不同职称的导师的个数。
+select title,count(1) as tutor_number,group_concat(name) from t_staff group by title;

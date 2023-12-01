@@ -1,0 +1,50 @@
+列出emp表中各部门的部门号，最高工资，最低工资
+select max(sal) as max,min(sal)as min,deptno from emp group by deptno;//运用最大和最小函数
+根据部门号由高而低，工资有低而高列出每个员工的姓名，部门号，工资
+select ename,deptno,sal from emp order by deptno asc, sal desc;//order函数中间需要加逗号分隔
+对于emp中有管理者的员工，列出姓名，管理者姓名（管理者外键为mgr）
+select * from emp where mgr！="";//不是在这用not null
+对于dept表中，列出所有部门名，部门号，同时列出各部门工作为'CLERK'的员工名与工作
+select dname, d.id,e.ename,e.job from dept d inner join emp e
+on d.id = e.deptno and job = 'clerk';//可以用and 连接 job='clerk'
+
+对于工资高于本部门平均水平的员工，列出部门号，姓名，工资，按部门号排序
+select a.deptno as 部门号,a.ename as 姓名,a.sal as 工资 from emp as a
+where a.sal>(select avg(sal) from emp as b where a.deptno=b.deptno) order by a.deptno
+
+
+-- 1 列出emp表中各部门的部门号，最高工资，最低工资
+select max(sal) as max,min(sal)as min,deptno from emp group by deptno;
+
+--2 列出emp表中各部门job为'CLERK'的员工的最低工资，最高工资
+select max(sal) as max,min(sal)as min,deptno from emp where job='clerk' group by deptno;
+
+--3 对于emp中最低工资小于2000的部门，列出job为'CLERK'的员工的部门号，最低工资，最高工资
+select deptno,min(sal),max(sal) from emp where job='clerk' group by deptno having min(sal)<2000;
+
+--4 根据部门号由高而低，工资有低而高列出每个员工的姓名，部门号，工资
+select ename,deptno,sal from emp order by deptno asc, sal desc;
+
+--5 列出'buddy'所在部门中每个员工的姓名与部门号
+select deptno,ename from emp where deptno=(select deptno from emp where ename='buddy');
+
+--6 列出每个员工的姓名，工作，部门号，部门名
+select e.ename,e.job,e.deptno,d.dname from emp e left join dept d on e.deptno = d.id;
+
+--7 列出emp中工作为'CLERK'的员工的姓名，工作，部门号，部门名
+select e.ename,e.job,e.deptno,d.dname from (select ename,job,deptno from emp where job = 'clerk') e inner join dept d on e.deptno = d.id;
+
+--8 对于emp中有管理者的员工，列出姓名，管理者姓名（管理者外键为mgr）
+select ename ,mgr from emp where mgr != '';
+
+--9 对于dept表中，列出所有部门名，部门号，同时列出各部门工作为'CLERK'的员工名与工作
+select dname, d.id,e.ename,e.job from dept d inner join emp e on d.id = e.deptno and job = 'clerk';
+
+--10 对于工资高于本部门平均水平的员工，列出部门号，姓名，工资，按部门号排序
+select a.deptno as 部门号,a.ename as 姓名,a.sal as 工资 from emp as a
+where a.sal>(select avg(sal) from emp as b where a.deptno=b.deptno) order by a.deptno
+
+--11 对于emp，列出各个部门中工资高于本部门平均工资的员工数和部门号，按部门号排序
+select count(a.sal) as 员工数,a.deptno as 部门号 from emp as a
+where a.sal>(select avg(sal) from emp as b where a.deptno=b.deptno)
+group by a.deptno order by a.deptno
