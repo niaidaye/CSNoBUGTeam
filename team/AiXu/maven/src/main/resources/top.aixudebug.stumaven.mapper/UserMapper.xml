@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.aixudebug.stumaven.mapper.UserMapper">
+<!--    注册-->
+    <insert id="signInByUser">
+        insert into home_mybatis_user(username, password, state)
+        values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 1);
+    </insert>
+
+<!--    登录-->
+    <select id="loginByUser"
+            resultType="top.aixudebug.stumaven.entity.User" >
+        select username from home_mybatis_user
+        where username = #{username,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR};
+    </select>
+<!--   修改登录状态 -->
+    <update id="updateStateByUsername">
+        update home_mybatis_user
+        set state = #{stare}
+        where username = #{username};
+    </update>
+
+<!--  修改用户信息  -->
+    <update id="updateById">
+        update home_mybatis_user set username = #{username},password = #{password}
+        where id = #{id};
+    </update>
+<!--  消户 状态为0代表用户被删除 -->
+    <update id="deleteUserById">
+        update home_mybatis_user
+        set state = '0'
+        where id = #{id};
+    </update>
+</mapper>
