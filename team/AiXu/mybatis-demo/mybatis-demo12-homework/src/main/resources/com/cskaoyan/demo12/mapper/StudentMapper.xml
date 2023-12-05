@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.demo12.mapper.StudentMapper">
+
+    <select id="queryStudentNameById" resultType="java.lang.String">
+        select student.name
+        from db_wangdao_homework.student
+        where id = #{param1};
+
+    </select>
+
+    <select id="queryStudentNameById2" resultType="java.lang.String">
+        select student.name
+        from db_wangdao_homework.student
+        where id = #{id};
+    </select>
+
+    <select id="queryStudentByNameOrId3" resultType="java.lang.String">
+        select student.name
+        from db_wangdao_homework.student
+        where id = #{param1}
+           or name = #{param2};
+
+    </select>
+
+    <select id="queryStudentNameOrId4" resultType="com.cskaoyan.demo12.bean.Student">
+    </select>
+
+    <select id="queryStudentByNameOrAge" resultType="com.cskaoyan.demo12.bean.Student">
+        select *
+        from db_wangdao_homework.student
+        where name = #{name}
+           or age = #{age};
+
+    </select>
+
+    <select id="queryStudentByNameOrAge2" resultType="com.cskaoyan.demo12.bean.Student">
+        select *
+        from db_wangdao_homework.student
+        where name = #{student.name}
+           or age = #{student.age};
+
+    </select>
+</mapper>

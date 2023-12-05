@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.demo12.mapper.UserMapper">
+
+    <insert id="insertUser1" parameterType="java.util.Map">
+        insert into user(username, password, age, birthday, createDate, mobile)
+        values (#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6});
+    </insert>
+
+    <insert id="insertUser2">
+        insert into user(username, password, age, birthday, createDate, mobile)
+        values (#{username}, #{password}, #{age}, #{birthday}, #{createDate}, #{mobile});
+    </insert>
+
+    <update id="updateName">
+        update user
+        set username = #{name}
+        where id = #{id};
+
+    </update>
+
+    <delete id="deleteByPrimaryKey">
+        delete
+        from user
+        where id = #{id};
+    </delete>
+
+    <insert id="insertUser3">
+        insert into user(username, password, age, birthday, createDate, mobile)
+            values (#{username}, #{password}, #{age}, #{birthday}, #{createDate}, #{mobile});
+    </insert>
+
+    <insert id="insertUser4">
+        insert into user(username, password, age, birthday, createDate, mobile)
+        values (#{user.username}, #{user.password}, #{user.age}, #{user.birthday}, #{user.createDate}, #{user.mobile});
+    </insert>
+</mapper>

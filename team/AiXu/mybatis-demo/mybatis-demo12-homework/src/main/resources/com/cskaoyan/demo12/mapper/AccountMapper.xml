@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.demo12.mapper.AccountMapper">
+    <resultMap id="AccountResMap" type="com.cskaoyan.demo12.bean.Account">
+        <id column="account_id" property="accountId"/>
+        <result column="account_name" property="accountName"/>
+        <result column="account_password" property="accountPassword"/>
+        <result column="account_email" property="accountEmail"/>
+    </resultMap>
+
+    <select id="queryAccountById" resultMap="AccountResMap">
+        select *
+        from db_wangdao_homework.account
+        where account_id = #{id};
+
+    </select>
+
+    <select id="queryAccountNameById" resultType="java.lang.String">
+        select account_name
+        from db_wangdao_homework.account
+        where account_id = #{id};
+
+    </select>
+
+    <select id="queryAllAccountName" resultType="java.lang.String">
+        select account_name
+        from db_wangdao_homework.account    </select>
+
+    <select id="queryAccountBy" resultMap="AccountResMap">
+        select *
+        from db_wangdao_homework.account
+    </select>
+</mapper>
