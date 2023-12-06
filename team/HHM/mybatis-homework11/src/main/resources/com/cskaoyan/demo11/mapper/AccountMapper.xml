@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.demo11.mapper.AccountMapper">
+
+    <select id="queryAccountByNameAndAddress" resultType="com.cskaoyan.demo11.bean.Account">
+    select * from account
+        <where>
+        <if test="name!=null">
+            and name=#{name}
+        </if>
+
+            <if test="address!=null">
+         and address=#{address}
+            </if>
+        </where>
+    </select>
+
+    <select id="queryAccountByCondition" resultType="com.cskaoyan.demo11.bean.Account">
+        select * from account
+        <where>
+            <choose>
+            <when test="account.name!=null">
+               name=#{account.name}
+            </when>
+                <when test="account.address!=null">
+                    address=#{account.address}
+                </when>
+            </choose>
+            <if test="account.email!=null">
+               and email=#{account.email}
+            </if>
+
+        </where>
+    </select>
+
+    <select id="queryAccountByCondition1" resultType="com.cskaoyan.demo11.bean.Account">
+        select * from account
+        <where>
+            <choose>
+                <when test="account.id!=0">
+                    id=#{account.id}
+                </when>
+                <when test="account.name!=null">
+                    name=#{account.name}
+                </when>
+                <otherwise >
+                    phone=#{account.phone}
+                </otherwise>
+
+            </choose>
+
+        </where>
+    </select>
+
+    <select id="queryAccountByCondition2" resultType="com.cskaoyan.demo11.bean.Account">
+        select * from account
+        <where>
+            <choose>
+                <when test="age gte 0  and age lt 18">
+                        age=18
+                </when>
+                <otherwise>
+                    age>18
+                </otherwise>>
+            </choose>>
+        </where>>
+
+
+    </select>
+</mapper>
