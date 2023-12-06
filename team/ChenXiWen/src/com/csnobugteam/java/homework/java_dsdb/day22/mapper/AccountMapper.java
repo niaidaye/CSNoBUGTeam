@@ -1,4 +1,4 @@
-package com.cskaoyan.demo01.mapper;
+package com.csnobugteam.java.homework.java_dsdb.day22.mapper;
 
 import com.cskaoyan.demo01.bean.Account;
 import org.apache.ibatis.annotations.Param;

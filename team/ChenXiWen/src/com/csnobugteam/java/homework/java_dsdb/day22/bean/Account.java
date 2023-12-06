@@ -1,4 +1,4 @@
-package com.cskaoyan.demo01.bean;
+package com.csnobugteam.java.homework.java_dsdb.day22.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
