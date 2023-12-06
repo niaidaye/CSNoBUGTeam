@@ -1,7 +1,8 @@
 package com.csnobugteam.java.homework.java_dsdb.day22.mapper;
 
-import com.cskaoyan.demo01.bean.Account;
-import org.apache.ibatis.annotations.Param;
+
+
+import com.csnobugteam.java.homework.java_dsdb.day22.bean.Account;
 
 import java.util.List;
 
@@ -11,12 +12,12 @@ import java.util.List;
  */
 public interface AccountMapper {
 
-    List<Account> queryAccountByNameAndAddress(@Param("name") String name, @Param("address") String address);
+    List<Account> queryAccountByNameAndAddress(String name, String address);
 
     List<Account> queryAccountByCondition(Account account);
 
     List<Account> queryAccountByCondition2(Account account);
 
-    List<Account> queryAccountByCondition3(@Param("age") Integer age);
+    List<Account> queryAccountByCondition3(Integer age);
 
 }
